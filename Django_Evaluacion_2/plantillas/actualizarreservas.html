@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    <title>Actualizar reserva</title>
+    <style>
+        .errorlist{
+            list-style-type: none;
+            color: red;
+            font-size: 10px;
+            margin: 0;
+            padding: 0;
+
+        }
+    </style>
+</head>
+<body class="container mt-5">
+    <div class="alert alert-info display-2 text-center">ACTUALIZAR RESERVA</div>
+    <form method="POST">
+        {{form.non_field_errors}}
+        {% for field in form %}
+            <div>
+                {{field.label_tag}} {{field}} 
+                {% for error in field.errors %}
+                    <span class="errorlist">{{error}}</span>
+                {% endfor %} 
+            </div>
+        {% endfor %}
+        {% csrf_token %}
+        <tr>
+            <td colspan=2>
+                <input type="submit" value="ACTUALIZAR RESERVA" class="btn btn-info mt-2 float-end">
+            </td>
+        </tr>
+    </form>
+    <a href="../lista/" class="btn btn-info mt-2">RESERVAS</a>
+</body>
+</html>
